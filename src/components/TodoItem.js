@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 import {
     StyleSheet,
     Text,
@@ -9,17 +9,17 @@ import {
 
 const TodoItem = ({name, onPressHandler}) => { 
     return (
-        <View style={styles.item}>
-            <Text>
-                {name}
-            </Text>
+        <TouchableOpacity style={styles.item} onPress={onPressHandler} >
             <Icon 
-                name="rocket" 
+                name="delete" 
                 size={20} 
-                onPress={onPressHandler} 
+                
                 style={styles.button}
             />
-        </View>
+            <Text style={styles.itemText}>
+                {name}
+            </Text>
+        </TouchableOpacity>
     )
 }
 export default TodoItem;
@@ -33,9 +33,8 @@ styles = StyleSheet.create({
         borderStyle: 'dashed',
         borderRadius: 10,
         flexDirection: 'row',
-        justifyContent: 'space-between'
     },
-    button: { 
-
+    itemText: { 
+        marginLeft: 10
     }
 })

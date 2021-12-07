@@ -22,7 +22,6 @@ import AddTodo from './components/AddTodo';
 import SendBox from './components/SendBox';
 
 const App = () => {
-  const [text, setText] = useState("");
   const [todos, setTodos] = useState([
     {name : "make app" , id: 1},
     {name : "play a game " , id: 2},
@@ -41,7 +40,7 @@ const App = () => {
   }
   const addTodoFunction = (text) => { 
     if(text.length > 3 ){ 
-      setTodos([{name: text ,id:Math.random().toString()},...todos])
+      setTodos([{name: text ,id:Math.random().toString()},...todos]);
     }else{
       Alert.alert('OOPS','Todo must be over 3 chars',[ 
         {text: 'Undrestood',onPress: ()=> console.log("closed") }

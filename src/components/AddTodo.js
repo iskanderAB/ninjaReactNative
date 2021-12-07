@@ -18,9 +18,15 @@ const AddTodo = ({addTodoFunction}) => {
             <TextInput
                 style={styles.input}
                 placeholder='New item ... '
+                value={text}
                 onChangeText={changeTextHandler}
             />
-            <Button onPress={()=>addTodoFunction(text)} title='Add todo' color='coral'/>
+            <Button 
+                onPress={()=>{
+                    addTodoFunction(text);
+                    setText('');
+                }} 
+                title='Add todo' color='coral'/>
         </View>
     )
 }
