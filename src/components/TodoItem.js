@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Icon from 'react-native-vector-icons/FontAwesome';
 import {
     StyleSheet,
     Text,
@@ -8,13 +9,17 @@ import {
 
 const TodoItem = ({name, onPressHandler}) => { 
     return (
-        <TouchableOpacity onPress={onPressHandler}>
-            <Text
-                style={styles.item}
-            >
+        <View style={styles.item}>
+            <Text>
                 {name}
             </Text>
-        </TouchableOpacity>
+            <Icon 
+                name="rocket" 
+                size={20} 
+                onPress={onPressHandler} 
+                style={styles.button}
+            />
+        </View>
     )
 }
 export default TodoItem;
@@ -26,6 +31,11 @@ styles = StyleSheet.create({
         borderColor: '#bbb',
         borderWidth: 1,
         borderStyle: 'dashed',
-        borderRadius: 10
-    }   
+        borderRadius: 10,
+        flexDirection: 'row',
+        justifyContent: 'space-between'
+    },
+    button: { 
+
+    }
 })

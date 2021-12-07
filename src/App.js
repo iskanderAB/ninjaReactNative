@@ -19,6 +19,7 @@ import {
 import Header from './components/Headers';
 import TodoItem from './components/TodoItem';
 import AddTodo from './components/AddTodo';
+import SendBox from './components/SendBox';
 
 const App = () => {
   const [text, setText] = useState("");
@@ -40,7 +41,7 @@ const App = () => {
   }
   const addTodoFunction = (text) => { 
     if(text.length > 3 ){ 
-      setTodos([{name: text ,id:todos.length+1},...todos])
+      setTodos([{name: text ,id:Math.random().toString()},...todos])
     }else{
       Alert.alert('OOPS','Todo must be over 3 chars',[ 
         {text: 'Undrestood',onPress: ()=> console.log("closed") }
@@ -54,6 +55,7 @@ const App = () => {
   }, [todos])
 
   return (
+    // <SendBox/>
     <TouchableWithoutFeedback
       onPress={()=> Keyboard.dismiss()}
     >
@@ -85,10 +87,15 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
   },
   content: { 
-    padding: 40
+    padding: 30,
+
+    flex: 1
   },
   list: { 
-    marginTop: 20
+    flex: 1,
+    marginTop: 20,
+    borderBottomColor: 'rgba(255, 0, 0, 0.05)',
+    borderBottomWidth: 2,
   }
 });
 export default App;
